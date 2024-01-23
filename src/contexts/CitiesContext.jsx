@@ -2,7 +2,8 @@
 import { useContext, useReducer } from "react";
 import { useEffect, createContext } from "react";
 
-const BASE_URL = "http://localhost:8000";
+// const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://magnetic-olive-column.glitch.me";
 
 const CitiesContext = createContext();
 
