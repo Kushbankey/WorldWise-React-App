@@ -14,6 +14,15 @@ import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "./Button";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 
+const flagemojiToPNG = (flag) => {
+  var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
+    .map((char) => String.fromCharCode(char - 127397).toLowerCase())
+    .join("");
+  return (
+    <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
+  );
+};
+
 function Map() {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]);
@@ -62,7 +71,7 @@ function Map() {
             key={city.id}
           >
             <Popup>
-              <span>{city.emoji}</span>
+              <span>{flagemojiToPNG(city.emoji)}</span>
               <span>{city.cityName}</span>
             </Popup>
           </Marker>
