@@ -6,11 +6,10 @@ import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  // PRE-FILL FOR DEV PURPOSES
   const [email, setEmail] = useState("jack@example.com");
-  const [password, setPassword] = useState("qwerty");
+  const [password, setPassword] = useState("9d}@hrd5Q3Q8PD,");
 
-  const { login, isAuthenticated } = useAuth();
+  const { login, isAuthenticated } = useAuth({ email, password });
   const navigate = useNavigate();
 
   function handleSubmit(e) {
@@ -31,6 +30,7 @@ export default function Login() {
       <PageNav />
 
       <form className={styles.form} onSubmit={handleSubmit}>
+        <h1>Test User</h1>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
